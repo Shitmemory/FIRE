@@ -1,0 +1,99 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 10%; /* Dark background */
+    --foreground: 0 0% 98%; /* Light text */
+
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 24 100% 50%; /* Orange */
+    --primary-foreground: 0 0% 100%;
+    
+    /* Custom FIRE palette */
+    --fire-primary: 24 100% 50%; /* Vibrant orange */
+    --fire-primary-foreground: 0 0% 100%; /* White text on primary */
+    
+    --fire-secondary: 0 0% 80%; /* Light gray */
+    --fire-secondary-foreground: 0 0% 12%; /* Dark text on secondary */
+
+    --fire-background: 0 0% 10%; /* Dark background */
+    --fire-foreground: 0 0% 98%; /* Light text */
+
+    --muted: 0 0% 20%; /* Darker gray */
+    --muted-foreground: 0 0% 70%; /* Light gray text */
+
+    --accent: 24 100% 50%; /* Orange accent */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72.2% 50.6%; /* Red */
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%; /* Dark gray border */
+    --input: 0 0% 20%;
+    --ring: 24 100% 50%;
+
+    --radius: 0.25rem; /* Sharp edges */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-[hsl(var(--fire-background))] text-[hsl(var(--fire-foreground))];
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight text-[hsl(var(--fire-secondary))];
+  }
+  h1 { @apply text-4xl md:text-5xl lg:text-6xl; }
+  h2 { @apply text-3xl md:text-4xl lg:text-5xl; }
+  h3 { @apply text-2xl md:text-3xl; }
+  p { @apply text-[hsl(var(--fire-foreground))]; }
+
+  /* Sidebar link hover effect */
+  .sidebar-link {
+    @apply transition-colors duration-200;
+  }
+  .sidebar-link:hover {
+    @apply text-[hsl(var(--fire-primary))];
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-[hsl(var(--fire-background))];
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-[hsl(var(--fire-primary))] rounded-full;
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Card hover effects */
+.card-hover {
+  @apply transition-all duration-300;
+}
+.card-hover:hover {
+  @apply transform -translate-y-1 shadow-lg shadow-[hsl(var(--fire-primary)_/_0.2)];
+}
